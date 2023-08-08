@@ -16,15 +16,15 @@ class StudentRepo{
         String sub1,sub2,sub3;
 
         //marks
-        int mrks1,mrks2,mrks3;
+        double mrks1,mrks2,mrks3;
 
         //Name validation
-        System.out.print("Enter name Student 1: ");
+        System.out.print("Enter name of the Student: ");
         name = scanner.nextLine();
         assert name.strip() != "" : "\033[1;31mInvalid Name\033[0m";
 
         //Age validation
-        System.out.print("Enter your Age: ");
+        System.out.print("Enter student Age: ");
         age = scanner.nextInt();
         assert age > 10 && 18 > age :"\033[1;31mInvalid Age\033[0m";
     
@@ -33,19 +33,47 @@ class StudentRepo{
         scanner.nextLine();
         sub1 = scanner.nextLine();
         assert sub1.startsWith("SE-") == true && sub1.strip() != "" : "\033[1;31mInvalid Subject\033[0m";
+
+        System.out.print("Enter marks: ");
+        mrks1 = scanner.nextInt();
+        assert (0 < mrks1 && mrks1 < 100) : "Invalid marks";
         
+        //sub2
         System.out.print("Enter subject 2: ");
         scanner.nextLine();
-        sub1 = scanner.nextLine();
-        assert sub1.startsWith("SE-") == true && sub1.strip() != "" : "\033[1;31mInvalid Subject\033[0m"; 
-
+        sub2 = scanner.nextLine();
+        assert sub1 != sub2 &&(sub1.startsWith("SE-") == true && sub1.strip() != "" ): "\033[1;31mInvalid Subject\033[0m"; 
+        
+        System.out.print("Enter marks: ");
+        mrks2 = scanner.nextInt();
+        assert 0 < mrks2 && mrks2 < 100 : "Invalid marks";
+        
+        //sub3
         System.out.print("Enter subject 3: ");
         scanner.nextLine();
-        sub1 = scanner.nextLine();
-        assert sub1.startsWith("SE-") == true && sub1.strip() != "" : "\033[1;31mInvalid Subject\033[0m"; 
+        sub3 = scanner.nextLine();
+        assert ((sub1 != sub3)&& sub3 != sub2)&&(sub1.startsWith("SE-") == true && sub1.strip() != "") : "\033[1;31mInvalid Subject\033[0m"; 
 
-        //marks validation
-        assert 
+        System.out.print("Enter marks: ");
+        mrks3 = scanner.nextInt();
+        assert 0 < mrks3 && mrks3 < 100 : "Invalid marks";
+        
+        double total = mrks1 + mrks2 + mrks3;
+        float avg;
+        avg = (float)total/3;
+
+        //Status
+        String fStaus = avg >= 75 ? "\033[1;32mCredit Pass\033[0m" : avg >= 55 ? "\033[1;34mPass\033[0m": "\033[1;31mFail\033[0m";
+        String sub1Staus = mrks1 >= 75 ? "\033[1;32mCredit Pass\033[0m" : mrks1 >= 55 ? "\033[1;34mPass\033[0m": "\033[1;31mFail\033[0m";
+        String sub2Staus = mrks2 >= 75 ? "\033[1;32mCredit Pass\033[0m" : mrks2 >= 55 ? "\033[1;34mPass\033[0m": "\033[1;31mFail\033[0m";
+        String sub3Staus = mrks3 >= 75 ? "\033[1;32mCredit Pass\033[0m" : mrks3 >= 55 ? "\033[1;34mPass\033[0m": "\033[1;31mFail\033[0m";
+        System.out.println("\n\n\n");
+        //output
+        System.out.printf("Name  : \033[1;34m%s\033[0m\n",name.toUpperCase());
+        System.out.printf("Age   : %d years old\n",age);
+        System.out.printf("Status: %s\n",fStaus);
+        System.out.printf("Total : %.0f\t\tAverage marks : %.2f\n",total,avg);
+
 
         
 
