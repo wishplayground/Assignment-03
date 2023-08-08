@@ -35,7 +35,7 @@ class StudentRepo{
         assert sub1.startsWith("SE-") == true && sub1.strip() != "" : "\033[1;31mInvalid Subject\033[0m";
 
         System.out.print("Enter marks: ");
-        mrks1 = scanner.nextInt();
+        mrks1 = scanner.nextDouble();
         assert (0 < mrks1 && mrks1 < 100) : "Invalid marks";
         
         //sub2
@@ -45,7 +45,7 @@ class StudentRepo{
         assert sub1 != sub2 &&(sub1.startsWith("SE-") == true && sub1.strip() != "" ): "\033[1;31mInvalid Subject\033[0m"; 
         
         System.out.print("Enter marks: ");
-        mrks2 = scanner.nextInt();
+        mrks2 = scanner.nextDouble();
         assert 0 < mrks2 && mrks2 < 100 : "Invalid marks";
         
         //sub3
@@ -55,7 +55,7 @@ class StudentRepo{
         assert ((sub1 != sub3)&& sub3 != sub2)&&(sub1.startsWith("SE-") == true && sub1.strip() != "") : "\033[1;31mInvalid Subject\033[0m"; 
 
         System.out.print("Enter marks: ");
-        mrks3 = scanner.nextInt();
+        mrks3 = scanner.nextDouble();
         assert 0 < mrks3 && mrks3 < 100 : "Invalid marks";
         
         double total = mrks1 + mrks2 + mrks3;
@@ -72,12 +72,15 @@ class StudentRepo{
         System.out.printf("Name  : \033[1;34m%s\033[0m\n",name.toUpperCase());
         System.out.printf("Age   : %d years old\n",age);
         System.out.printf("Status: %s\n",fStaus);
-        System.out.printf("Total : %.0f\t\tAverage marks : %.2f\n",total,avg);
+        System.out.printf("Total : %.0f\t\tAverage marks : %.2f\n\n",total,avg);
 
-
-        
-
-
-
+        //grid
+        System.out.printf("+" + "-".repeat(11) + "+" + "-".repeat(9) + "+" + "-".repeat(15) + "+\n");
+        System.out.printf("|  %s  |  %s  |  %s       |\n","Subject","Marks","Status");
+        System.out.printf("+" + "-".repeat(11) + "+" + "-".repeat(9) + "+" + "-".repeat(15) + "+\n");
+        System.out.printf("|  %-6s   |  %5.2f  |  %-22s  |\n",sub1,mrks1,sub1Staus);
+        System.out.printf("|  %-6s   |  %5.2f  |  %-22s  |\n",sub2,mrks2,sub2Staus);
+        System.out.printf("|  %-6s   |  %5.2f  |  %-2s  |\n",sub3,mrks3,sub3Staus);
+        System.out.printf("+" + "-".repeat(11) + "+" + "-".repeat(9) + "+" + "-".repeat(15) + "+\n");
     }
 }
